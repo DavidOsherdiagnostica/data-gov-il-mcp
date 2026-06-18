@@ -5,10 +5,12 @@
  * messages. Any log written to stdout corrupts the protocol stream.
  * Pino is directed to process.stderr unconditionally.
  */
-import pino, { type Logger } from "pino";
+import pino, { type DestinationStream, type Logger } from "pino";
 import { env, isDevelopment } from "../config/env.js";
 
-const transport =
+// pino.transport() is typed loosely, but it implements DestinationStream.
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const transport: DestinationStream =
   isDevelopment || env.NODE_ENV === "test"
     ? pino.transport({
         target: "pino-pretty",

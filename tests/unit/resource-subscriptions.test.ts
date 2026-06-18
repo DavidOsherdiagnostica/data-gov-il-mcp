@@ -9,7 +9,7 @@ import type {
 import type { Logger } from "../../src/observability/logger.js";
 
 describe("resource subscriptions", () => {
-  it("accepts subscriptions for known static resources", async () => {
+  it("accepts subscriptions for known static resources", () => {
     const { manager, subscribe } = setup();
 
     subscribe("datagov://tags");

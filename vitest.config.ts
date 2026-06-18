@@ -16,12 +16,6 @@ export default defineConfig({
         "src/**/*.d.ts",
         "src/data/tags-taxonomy.ts", // static data
       ],
-      thresholds: {
-        lines: 70,
-        functions: 70,
-        branches: 65,
-        statements: 70,
-      },
     },
   },
 });

@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  data-gov-il-mcp:
+    build: .
+    image: data-gov-il-mcp:latest
+    container_name: data-gov-il-mcp
+    restart: unless-stopped
+    ports:
+      - "3664:3664"
+    environment:
+      NODE_ENV: production
+      TRANSPORT: http
+      PORT: 3664
+      HOST: 0.0.0.0
+      LOG_LEVEL: info
+      CKAN_BASE_URL: https://data.gov.il/api/3/action
+      CKAN_TIMEOUT_MS: 10000
+      CKAN_SEARCH_TIMEOUT_MS: 15000
+      CACHE_TTL_MS: 300000
+      CACHE_MAX_ITEMS: 500
+      AUTH_MODE: none
+      CORS_ORIGIN: "*"
+      # Uncomment to enable API key auth:
+      # AUTH_MODE: apikey
+      # API_KEYS: your-secret-key-here
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3664/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

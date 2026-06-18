@@ -1,0 +1,65 @@
+name: Catalog Refresh
+
+on:
+  schedule:
+    # Every Monday at 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Open a PR even if the snapshot did not change"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    name: Refresh catalog snapshot
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run catalog refresh
+        env:
+          CKAN_BASE_URL: https://data.gov.il/api/3/action
+        run: npm run catalog:refresh
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet src/data/catalog/catalog.snapshot.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: steps.diff.outputs.changed == 'true' || inputs.force == true
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: refresh catalog snapshot"
+          branch: "chore/catalog-refresh"
+          delete-branch: true
+          title: "chore: refresh catalog snapshot"
+          body: |
+            Automated catalog snapshot refresh.
+
+            The `src/data/catalog/catalog.snapshot.json` artifact was regenerated
+            from the live data.gov.il CKAN API by the scheduled workflow.
+
+            **Review:** Check that `meta.datasetCount`, `meta.tagCount`, and
+            `meta.orgCount` look reasonable before merging.
+          labels: "automated,catalog"
+          add-paths: "src/data/catalog/catalog.snapshot.json"

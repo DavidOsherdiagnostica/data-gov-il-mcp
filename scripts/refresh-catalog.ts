@@ -36,7 +36,7 @@ const PAGE_SIZE = 100;
 const DELAY_MS = 150;
 const NOTES_MAX = 300;
 const USER_AGENT =
-  "data-gov-il-mcp/catalog-refresh (+https://github.com/DavidOsherProceed/data-gov-il-mcp)";
+  "data-gov-il-mcp/catalog-refresh (+https://github.com/DavidOsherdiagnostica/data-gov-il-mcp)";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "../src/data/catalog/catalog.snapshot.json");

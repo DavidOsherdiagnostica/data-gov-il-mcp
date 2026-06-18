@@ -6,13 +6,15 @@
   "main": "./dist/bin/stdio.js",
   "bin": {
     "data-gov-il-mcp": "dist/bin/stdio.js",
-    "data-gov-il-mcp-http": "dist/bin/http.js"
+    "data-gov-il-mcp-http": "dist/bin/http.js",
+    "data-gov-il-mcp-cli": "dist/bin/cli.js"
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
     "start:stdio": "node dist/bin/stdio.js",
     "start:http": "node dist/bin/http.js",
+    "start:cli": "node dist/bin/cli.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src tests",
     "lint:fix": "eslint src tests --fix",

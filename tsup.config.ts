@@ -4,6 +4,7 @@ export default defineConfig({
   entry: {
     "bin/stdio": "src/bin/stdio.ts",
     "bin/http": "src/bin/http.ts",
+    "bin/cli": "src/bin/cli.ts",
   },
   format: ["esm"],
   target: "node18",

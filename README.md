@@ -1,3 +1,7 @@
+<img width="1024" height="290" alt="gov-mcp" src="https://github.com/user-attachments/assets/e86fed13-3756-43b3-aba8-85778099e9a6" />
+
+
+
 # data-gov-il-mcp
 
 Production-grade [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for Israeli Government Open Data from [data.gov.il](https://data.gov.il).

@@ -1,6 +1,6 @@
 {
   "name": "data-gov-il-mcp",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Production-grade MCP server for Israeli Government Open Data (data.gov.il) — TypeScript, typed CKAN client, OAuth 2.1, dual transport",
   "type": "module",
   "main": "./dist/bin/stdio.js",

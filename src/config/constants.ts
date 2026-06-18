@@ -11,18 +11,18 @@ export const DEFAULT_LIMITS = {
 
 export const POPULAR_DATASETS = [
   "branches",
-  "jerusalem-municipality-budget",
+  "beer-sheva-municipality-budget-7",
   "mechir-lamishtaken",
   "traffic-counts",
   "population-and-recipients-of-benefits-under-settlement-2012",
 ] as const;
 
 export const POPULAR_ORGANIZATIONS = [
-  "ministry-of-health",
-  "tel-aviv-yafo",
-  "jerusalem",
-  "cbs",
-  "ministry-of-finance",
+  "ministry-health",
+  "haifa",
+  "beer-sheva",
+  "lamas",
+  "mof",
 ] as const;
 
 /** Known-good resource IDs used in documentation and tests. */
@@ -36,7 +36,7 @@ export const EXAMPLE_RESOURCE_IDS = {
 export const RESOURCE_URI_SCHEME = "datagov" as const;
 
 /** User-Agent header sent to the CKAN API. */
-export const USER_AGENT = "data-gov-il-mcp/3.0 (+https://github.com/DavidOsherProceed/data-gov-il-mcp)" as const;
+export const USER_AGENT = "data-gov-il-mcp/3.0 (+https://github.com/DavidOsherdiagnostica/data-gov-il-mcp)" as const;
 
 export const SORT_OPTIONS = {
   newest: "metadata_created desc",

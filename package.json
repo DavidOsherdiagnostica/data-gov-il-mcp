@@ -5,8 +5,8 @@
   "type": "module",
   "main": "./dist/bin/stdio.js",
   "bin": {
-    "data-gov-il-mcp": "./dist/bin/stdio.js",
-    "data-gov-il-mcp-http": "./dist/bin/http.js"
+    "data-gov-il-mcp": "dist/bin/stdio.js",
+    "data-gov-il-mcp-http": "dist/bin/http.js"
   },
   "scripts": {
     "build": "tsup",
@@ -46,12 +46,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DavidOsherProceed/data-gov-il-mcp.git"
+    "url": "git+https://github.com/DavidOsherdiagnostica/data-gov-il-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/DavidOsherProceed/data-gov-il-mcp/issues"
+    "url": "https://github.com/DavidOsherdiagnostica/data-gov-il-mcp/issues"
   },
-  "homepage": "https://github.com/DavidOsherProceed/data-gov-il-mcp#readme",
+  "homepage": "https://github.com/DavidOsherdiagnostica/data-gov-il-mcp#readme",
   "engines": {
     "node": ">=18.18.0"
   },
